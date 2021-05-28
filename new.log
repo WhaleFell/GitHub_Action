@@ -1,0 +1,3 @@
+2021-05-28 20:16:35,110 - D:\Python-3.8\lib\site-packages\urllib3\connectionpool.py[line:939] - DEBUG: Starting new HTTPS connection (1): push.xuthus.cc:443
+2021-05-28 20:16:35,200 - D:\Python-3.8\lib\site-packages\urllib3\connectionpool.py[line:433] - DEBUG: https://push.xuthus.cc:443 "GET /send/92f83d0596c7b553ea1df9f242e4fc46?c=test HTTP/1.1" 200 59
+2021-05-28 20:16:35,202 - c:/Users/admin/Desktop/GitHub Action/main.py[line:31] - WARNING: [CoolPush]ÍÆËÍ³É¹¦
