@@ -1,0 +1,55 @@
+# name属性用来指定这个工作流的名字
+name: 'GitHub Actions CoolPush Bot'
+
+# 这个部分用来指定能够触发工作流执行的事件
+# on:
+#   # 当对分支main进行push操作的时候，这个工作流就被触发了
+#   push:
+#     branches: [ main ]
+on:
+  push:
+  schedule:
+  # 定时任务，在每天的5点推送天气信息到邮箱
+    - cron: '*/5 * * * *'
+    # 0 0/5 * * * ? *
+
+# 工作流是由一个或多个的jobs构成的，在jobs里来说明要交给GitHub aciton执行的任务
+jobs:
+  # 这个jobs中的一个任务，名字叫build(随便怎么取)
+  build:
+    # 用来指定这个任务在什么操作系统上跑(服务器是GitHub免费提供的)
+    runs-on: ubuntu-latest
+
+    # 指出这个build任务的步骤
+    steps:
+
+      # 步骤，这里只写了一个步骤，目的是输出hello github acition
+      # - name: Run a one-line script
+      #   run: echo Hello, github action!
+
+      - name: checkout actions
+      - uses: actions/checkout@v1
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+  
+      - name: Update paper list
+        run: |
+          pip3 install requests
+          cd GitHub Action
+          python3 main.py
+  
+      - name: commit
+        run: |
+          git config --global user.email 2734184475@qq.com
+          git config --global user.name AdminWhaleFall
+          git add .
+          git commit -m "GitHub Action 推送测试" -a
+  
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: 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
+          # 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
