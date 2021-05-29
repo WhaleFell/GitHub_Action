@@ -10,7 +10,7 @@ on:
   push:
   schedule:
   # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '0 0/5 * * *'
+    - cron: '*/5 * * * *'
     # 0 0/5 * * * ? *
 
 # 工作流是由一个或多个的jobs构成的，在jobs里来说明要交给GitHub aciton执行的任务
@@ -51,4 +51,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: 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
+          # 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
