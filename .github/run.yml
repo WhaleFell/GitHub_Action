@@ -10,7 +10,8 @@ on:
   push:
   schedule:
   # 定时任务，在每天的5点推送天气信息到邮箱
-    - cron: '0 21 * * *'
+    - cron: '0 0/5 * * *'
+    # 0 0/5 * * * ? *
 
 # 工作流是由一个或多个的jobs构成的，在jobs里来说明要交给GitHub aciton执行的任务
 jobs:
